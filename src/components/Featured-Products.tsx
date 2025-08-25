@@ -50,34 +50,57 @@ export const FeaturedProducts = () => {
           </div>
         </div> */}
         <div className="w-60 h-100 flex flex-col justify-start gap-4">
-          <Image src={"/jacket.jpg"} alt="Jackte" width={2000} height={2000} className="object-cover  rounded-3xl h-80 w-full" />
+          <Image
+            src={"/jacket.jpg"}
+            alt="Jackte"
+            width={2000}
+            height={2000}
+            className="object-cover  rounded-3xl h-80 w-full"
+          />
           <div className="w-60 h-10 flex flex-col items-start px-3">
             <span>Suede Jeans</span>
             <span>$29.99</span>
           </div>
         </div>
         <div className="w-60 h-100 flex flex-col justify-start gap-4">
-          <Image src={"/jeans.jpg"} alt="Jackte" width={2000} height={2000} className="object-cover  rounded-3xl h-80 w-full" />
+          <Image
+            src={"/jeans.jpg"}
+            alt="Jackte"
+            width={2000}
+            height={2000}
+            className="object-cover  rounded-3xl h-80 w-full"
+          />
           <div className="w-60 h-10 flex flex-col items-start px-3">
             <span>Relaxed Fit Jeans</span>
             <span>$19.99</span>
           </div>
         </div>
         <div className="w-60 h-100 flex flex-col justify-start gap-4">
-          <Image src={"/tshirt.jpg"} alt="Jackte" width={2000} height={2000} className="object-cover  rounded-3xl h-80 w-full" />
+          <Image
+            src={"/tshirt.jpg"}
+            alt="Jackte"
+            width={2000}
+            height={2000}
+            className="object-cover  rounded-3xl h-80 w-full"
+          />
           <div className="w-60 h-10 flex flex-col items-start px-3">
             <span>Beige Polo T-shirt</span>
             <span>$14.99</span>
           </div>
         </div>
         <div className="w-60 h-100 flex flex-col justify-start gap-4">
-          <Image src={"/shirt.jpg"} alt="Jackte" width={2000} height={2000} className="object-cover  rounded-3xl h-80 w-full" />
+          <Image
+            src={"/shirt.jpg"}
+            alt="Jackte"
+            width={2000}
+            height={2000}
+            className="object-cover  rounded-3xl h-80 w-full"
+          />
           <div className="w-60 h-10 flex flex-col items-start px-3">
             <span>Grey Striped Shirt</span>
             <span>$15.99</span>
           </div>
         </div>
-       
       </div>
     </div>
   );

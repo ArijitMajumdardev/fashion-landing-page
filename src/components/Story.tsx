@@ -10,7 +10,7 @@ const Story = () => {
       {/* background texture */}
       <div className="absolute inset-0 bg-[url(/grain2.jpg)] bg-cover bg-center opacity-30 mix-blend-overlay pointer-events-none"></div>
 
-      <h1 className="text-8xl font-didot uppercase text-left w-3xs absolute right-72 top-6 z-10">
+      <h1 className="text-8xl font-didot uppercase text-left w-3xs absolute right-88 top-6 z-10">
         Our <br />
         Story
       </h1>

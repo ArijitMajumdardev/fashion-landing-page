@@ -1,7 +1,13 @@
+'use client'
+
+import { useScroll, useTransform, motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 
 const Story = () => {
+    // Track scroll for parallax
+  const { scrollY } = useScroll();
+  const yBg = useTransform(scrollY, [0, 500], [0, -80]); // background moves slower
   return (
     <div className="relative h-screen w-full bg-neutral-900 text-center text-gray-200 -mt-[10vh] rounded-t-[60px]">
       {/* <div className="relative h-screen w-full bg-neutral-900 text-center text-gray-200 -mt-[10vh]
@@ -10,10 +16,10 @@ const Story = () => {
       {/* background texture */}
       <div className="absolute inset-0 bg-[url(/grain2.jpg)] bg-cover bg-center opacity-30 mix-blend-overlay pointer-events-none"></div>
 
-      <h1 className="text-8xl font-didot uppercase text-left w-3xs absolute right-88 top-6 z-10">
+      <motion.h1 style={{ y: yBg }} className="text-8xl font-didot uppercase text-left w-3xs absolute right-88 top-6 z-10">
         Our <br />
         Story
-      </h1>
+      </motion.h1>
 
       <div className="w-[28vw] h-[80vh] absolute right-6 top-16 bg-amber-400 rounded-[4vw]">
         <Image
@@ -25,7 +31,7 @@ const Story = () => {
         />
       </div>
 
-      <div className="w-2/5 p-4 mb-2 h-3/6  text-left absolute bottom-20 left-10 flex flex-col justify-center gap-8 font-serif">
+      <motion.div style={{ y: yBg }} className="w-2/5 p-4 mb-2 h-3/6  text-left absolute bottom-20 left-10 flex flex-col justify-center gap-8 font-serif">
         <h2 className="text-2xl">Born in India, Crafted for the World</h2>
         <p className="leading-7">
           Voida was born where legacy meets vision — in a small tailoring unit,
@@ -34,7 +40,7 @@ const Story = () => {
           his life mastering the art of tailoring. He didn’t just stitch clothes
           — he crafted character.
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 };

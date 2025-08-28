@@ -13,16 +13,16 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative h-[110vh] w-full bg-cover bg-[url(../../public/hero2.png)]"
+      className="relative h-[110vh] w-full  bg-[70%_10%] md:bg-cover  bg-[url(../../public/hero2.png)]"
     >
       {/* Background overlay with parallax */}
-      <motion.div
-        
-        className="absolute inset-0 bg-[url(/grain2.jpg)] bg-cover h-[110vh] bg-center opacity-20 mix-blend-overlay pointer-events-none"
-      ></motion.div>
+      <motion.div className="absolute inset-0 bg-[url(/grain2.jpg)] bg-cover h-[110vh] bg-center opacity-20 mix-blend-overlay pointer-events-none"></motion.div>
 
       {/* Foreground content */}
-      <motion.div style={{ y: yBg }} className="flex h-full relative flex-col justify-center text-white items-center">
+      <motion.div
+        style={{ y: yBg }}
+        className="flex h-full relative flex-col justify-center text-white items-center"
+      >
         {/* Heading animation */}
         <motion.h1
           initial={{ opacity: 0, y: 50, scale: 0.95 }}

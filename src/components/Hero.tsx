@@ -1,19 +1,35 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
-  // Track scroll for parallax
+  useEffect(() => {
+    // The correct path is just '/hero2.png' since it's in the public directory
+    const imageUrl = "/hero2.png";
+    const img = new Image();
+    img.src = imageUrl;
+    img.onload = () => {
+      setIsImageLoaded(true);
+    };
+    img.onerror = () => {
+      // Optional: handle error if the image fails to load
+      console.error("Failed to load hero image.");
+    };
+  }, []);
+
   const { scrollY } = useScroll();
-  const yBg = useTransform(scrollY, [0, 500], [0, -80]); // background moves slower
+  const yBg = useTransform(scrollY, [0, 500], [0, -80]);
 
   return (
     <section
       ref={ref}
-      className="relative h-[110vh] w-full  bg-[70%_10%] md:bg-cover  bg-[url(../../public/hero2.png)]"
+      className={`relative h-[110vh] w-full bg-[70%_10%] md:bg-cover bg-black ${
+        isImageLoaded ? "bg-[url(/hero2.png)]" : "bg-black"
+      } transition-colors duration-500 ease-in`}
     >
       {/* Background overlay with parallax */}
       <motion.div className="absolute inset-0 bg-[url(/grain2.jpg)] bg-cover h-[110vh] bg-center opacity-20 mix-blend-overlay pointer-events-none"></motion.div>
@@ -23,7 +39,6 @@ export default function Hero() {
         style={{ y: yBg }}
         className="flex h-full relative flex-col justify-center text-white items-center"
       >
-        {/* Heading animation */}
         <motion.h1
           initial={{ opacity: 0, y: 50, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -35,7 +50,6 @@ export default function Hero() {
           CLOTHING
         </motion.h1>
 
-        {/* Subtitle animation */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,7 +59,6 @@ export default function Hero() {
           Your essentials, your style, your story
         </motion.p>
 
-        {/* Button animation */}
         <motion.button
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -8,6 +8,7 @@ const Story = () => {
     // Track scroll for parallax
   const { scrollY } = useScroll();
   const yBg = useTransform(scrollY, [0, 500], [0, -80]); // background moves slower
+  const story = useTransform(scrollY, [0, 800], [0, -80]); // background moves slower
   return (
     <div className="relative h-screen w-full bg-neutral-900 text-center text-gray-200 -mt-[10vh] rounded-t-[60px]">
       {/* <div className="relative h-screen w-full bg-neutral-900 text-center text-gray-200 -mt-[10vh]
@@ -16,7 +17,7 @@ const Story = () => {
       {/* background texture */}
       <div className="absolute inset-0 bg-[url(/grain2.jpg)] bg-cover bg-center opacity-30 mix-blend-overlay pointer-events-none"></div>
 
-      <motion.h1 style={{ y: yBg }} className="text-8xl font-didot uppercase text-left w-3xs absolute right-88 top-6 z-10">
+      <motion.h1 style={{ y: story }} className="text-8xl font-didot uppercase text-left w-3xs absolute right-88 top-6 z-10">
         Our <br />
         Story
       </motion.h1>

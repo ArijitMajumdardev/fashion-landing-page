@@ -17,22 +17,53 @@ const Header = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 z-50 h-18 w-full flex justify-around transition-colors duration-500 text-gray-300`}
+      className={`fixed top-0 left-0 z-50 h-18 w-full flex   md:justify-around transition-colors duration-500 text-gray-300`}
     >
-      <div className="w-4/10 flex">
-        <div className=" flex justify-center items-center gap-10 ml-10">
-          <Link href={"#"}>Home</Link>
-          <Link href={"#"}>shop</Link>
-          <Link href={"#"}>About Us</Link>
-          <Link href={"#"}>Blog</Link>
+
+      <div className=" w-full md:hidden h-full relative ">
+              <button className="cursor-pointer md:hidden relative left-4 top-5">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="lucide lucide-menu-icon lucide-menu"
+        >
+          <path d="M4 12h16" />
+          <path d="M4 18h16" />
+          <path d="M4 6h16" />
+        </svg>
+        </button>
+        <div className="absolute inset-0 flex justify-center items-center">
+        <h1 className="font-extrabold font-didot text-4xl ">VOIDA</h1>
+
         </div>
       </div>
 
-      <div className="w-2/10 flex justify-center items-center">
+
+      <div className="w-4/10 hidden md:flex">
+        <div className=" flex justify-center items-center md:gap-6 lg:gap-10 ml-10">
+          {["Home", "Shop", "About Us", "Blog"].map((item) => (
+            <motion.div key={item}>
+              <Link href={"#"} className="relative group">
+                {item}
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-gray-300 transition-all duration-300 group-hover:w-full" />
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-2/10 md:flex justify-center items-center  hidden ">
         <h1 className="font-extrabold font-didot text-4xl ">VOIDA</h1>
       </div>
 
-      <div className="w-4/10 flex justify-end items-center gap-6 pr-6">
+      <div className="w-4/10 hidden  md:flex justify-end items-center gap-6 pr-6">
         <Link href={"#"}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

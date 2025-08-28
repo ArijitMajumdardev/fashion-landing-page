@@ -1,47 +1,61 @@
-'use client'
+"use client";
 
 import { useScroll, useTransform, motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 
 const Story = () => {
-    // Track scroll for parallax
+  // Track scroll for parallax
   const { scrollY } = useScroll();
-  const yBg = useTransform(scrollY, [0, 500], [0, -80]); // background moves slower
-  const story = useTransform(scrollY, [0, 800], [0, -80]); // background moves slower
-  return (
-    <div className="relative h-screen w-full bg-neutral-900 text-center text-gray-200 -mt-[10vh] rounded-t-[60px]">
-      {/* <div className="relative h-screen w-full bg-neutral-900 text-center text-gray-200 -mt-[10vh]
-        [clip-path:polygon(0%_calc(0%_-_4000%),55%_6%,calc(100%_-_26%)_calc(90%_-_84%),400%_3rem,100%_100%,0%_100%)]"> */}
+  const yBg = useTransform(scrollY, [0, 500], [0, -80]);
+  const story = useTransform(scrollY, [0, 800], [0, -70]);
 
+  return (
+    <div className="h-screen relative w-full overflow-hidden bg-neutral-900 text-center text-gray-200 -mt-[10vh] rounded-t-[60px] md:h-screen lg:h-screen">
       {/* background texture */}
       <div className="absolute inset-0 bg-[url(/grain2.jpg)] bg-cover bg-center opacity-30 mix-blend-overlay pointer-events-none"></div>
 
-      <motion.h1 style={{ y: story }} className="text-8xl font-didot uppercase text-left w-3xs absolute right-88 top-6 z-10">
-        Our <br />
-        Story
-      </motion.h1>
+      {/* Main container for content */}
+      <div className="absolute w-full flex flex-col md:flex-row md:justify-center md:items-center h-full px-6 py-12 md:px-12 lg:px-24">
+        {/* Story Title */}
+        <motion.div
+          style={{ y: story }}
+          className="md:order-1 text-left  w-full md:w-auto md:absolute md:right-auto md:top-12 md:left-12 lg:left-24 "
+        >
+          <h1 className="text-6xl md:text-8xl font-didot uppercase ">
+            Our <br /> Story
+          </h1>
+        </motion.div>
 
-      <div className="w-[28vw] h-[80vh] absolute right-6 top-16 bg-amber-400 rounded-[4vw]">
-        <Image
-          src={"/story.png"}
-          alt="Story"
-          height={1000}
-          width={500}
-          className="object-contain rounded-[4vw]"
-        />
+        {/* Story Image */}
+        <div className=" h-auto  md:mt-0 md:w-1/2 lg:w-2/5 order-3  flex justify-center ">
+          <div className="relative w-full h-[60vh] md:h-[80vh] rounded-[4vw] overflow-hidden ">
+            <Image
+              src={"/story.png"}
+              alt="Story"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Story Text */}
+        <motion.div
+          style={{ y: yBg }}
+          className="md:order-2 w-full mt-6  md:mt-40  md:w-1/2 lg:w-2/5 p-4 text-left flex flex-col justify-center gap-4 md:gap-8 font-serif"
+        >
+          <h2 className="text-xl md:text-2xl">
+            Born in India, Crafted for the World
+          </h2>
+          <p className="leading-7 text-sm md:text-base">
+            Voida was born where legacy meets vision — in a small tailoring
+            unit, surrounded by fabric rolls, chalk lines, and the rhythmic hum
+            of sewing machines. The roots of Voida trace back to a father who
+            spent his life mastering the art of tailoring. He didn’t just stitch
+            clothes — he crafted character.
+          </p>
+        </motion.div>
       </div>
-
-      <motion.div style={{ y: yBg }} className="w-2/5 p-4 mb-2 h-3/6  text-left absolute bottom-20 left-10 flex flex-col justify-center gap-8 font-serif">
-        <h2 className="text-2xl">Born in India, Crafted for the World</h2>
-        <p className="leading-7">
-          Voida was born where legacy meets vision — in a small tailoring unit,
-          surrounded by fabric rolls, chalk lines, and the rhythmic hum of
-          sewing machines. The roots of Voida trace back to a father who spent
-          his life mastering the art of tailoring. He didn’t just stitch clothes
-          — he crafted character.
-        </p>
-      </motion.div>
     </div>
   );
 };

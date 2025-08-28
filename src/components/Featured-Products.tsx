@@ -26,13 +26,31 @@ export const FeaturedProducts = () => {
 
       {/* Category buttons */}
       <div className="w-full h-20 mt-10 flex flex-wrap">
-        <div className="h-full w-full sm:w-2/4 flex justify-center sm:justify-start gap-4 px-4 items-center">
+        <div className="h-full w-full bg-red-300 md:w-2/4 flex justify-center  gap-4 px-4 items-center">
           <button className="bg-gray-200 text-black w-24 h-8 rounded-full cursor-pointer">All</button>
-          <button className="bg-neutral-900 w-24 h-8 rounded-full cursor-pointer">T-shirts</button>
+          <button className="bg-neutral-900 w-24 h-8 rounded-full cursor-pointer ">T-shirts</button>
           <button className="bg-neutral-900 w-24 h-8 rounded-full cursor-pointer">Pants</button>
           <button className="bg-neutral-900 w-24 h-8 rounded-full cursor-pointer">Jackets</button>
+           <button className="bg-neutral-900 w-24 h-8 cursor-pointer rounded-full md:hidden flex justify-center gap-2 items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-funnel"
+            >
+              <path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z" />
+            </svg>
+            <span>Filter</span>
+          </button>
+          
         </div>
-        <div className="h-full w-full sm:w-2/4 flex justify-center sm:justify-end items-center px-10 mt-4 sm:mt-0">
+        <div className="h-full w-full sm:w-2/4 hidden md:flex justify-center sm:justify-end items-center px-10 mt-4 sm:mt-0">
           <button className="bg-neutral-900 w-24 h-8 cursor-pointer rounded-full flex justify-center gap-2 items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"

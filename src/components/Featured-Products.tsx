@@ -26,7 +26,7 @@ export const FeaturedProducts = () => {
 
       {/* Category buttons */}
       <div className="w-full h-20 mt-10 flex flex-wrap">
-        <div className="h-full w-full bg-red-300 md:w-2/4 flex justify-center  gap-4 px-4 items-center">
+        <div className="h-full w-full  md:w-2/4 flex justify-center  gap-4 px-4 items-center">
           <button className="bg-gray-200 text-black w-24 h-8 rounded-full cursor-pointer">All</button>
           <button className="bg-neutral-900 w-24 h-8 rounded-full cursor-pointer ">T-shirts</button>
           <button className="bg-neutral-900 w-24 h-8 rounded-full cursor-pointer">Pants</button>
